@@ -4,6 +4,7 @@ postgres_ha_cluster_master_host: "{{ ansible_play_batch[0] }}"     # sync all DB
 postgres_ha_cluster_name: 'pgcluster'                      # name of the pcs cluster
 postgres_ha_cluster_vip:  10.20.30.40                      # floating IP that will be used to connect to clustered DB (always follows the master)
 postgres_ha_cluster_vip_mask: 24                           # floating IP netmask
+postgres_ha_cluster_vip_nic: eth0                          # floating IP interface
 postgres_ha_cluster_vip_res_name:  'pg-vip'                # resource name of the floating IP
 postgres_ha_cluster_pg_res_name: 'postgres'                # slave DB cluster resource name
 postgres_ha_cluster_pg_HA_res_name: 'postgres-ha'          # master DB cluster resource name (this name is used to manage postgres resource)
