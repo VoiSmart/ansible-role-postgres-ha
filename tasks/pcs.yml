@@ -62,6 +62,8 @@
   shell: pcs cluster auth {{ ansible_play_batch | join( " ") }} -u hacluster -p "{{ postgres_ha_cluster_ha_password }}" --debug
   retries: 3
   delay: 3
+  register: _pcs_cluster_auth_result
+  until: _pcs_cluster_auth_result.rc == 0
 
 # We create cluster in two steps:
 # 1. create one-node cluster
