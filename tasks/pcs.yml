@@ -59,7 +59,7 @@
     password: "{{ postgres_ha_cluster_ha_password_hash }}"
 
 - name: setup cluster auth
-  shell: pcs cluster auth {{ ansible_play_batch | join( " ") }} -u hacluster -p "{{ postgres_ha_cluster_ha_password }}"
+  shell: pcs cluster auth {{ ansible_play_batch | join( " ") }} -u hacluster -p "{{ postgres_ha_cluster_ha_password }}" --debug
 
 # We create cluster in two steps:
 # 1. create one-node cluster
