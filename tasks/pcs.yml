@@ -59,7 +59,7 @@
     password: "{{ postgres_ha_cluster_ha_password_hash }}"
 
 - name: setup cluster auth
-  shell: pcs cluster auth {{ ansible_play_batch | join( " ") }} -u hacluster -p "{{ postgres_ha_cluster_ha_password }}" --debug
+  shell: pcs cluster auth {{ ansible_play_batch | join( " ") }} -u hacluster -p {{ postgres_ha_cluster_ha_password | quote}} --debug
   retries: 3
   delay: 3
   register: _pcs_cluster_auth_result
